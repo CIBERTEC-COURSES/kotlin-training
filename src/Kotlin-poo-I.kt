@@ -17,9 +17,35 @@ fun main(){
     println("${persona2.nombre} es mayor de edad? -> ${ if (persona2.esMayorEdad()) "Si" else "No"}")
     println("Ańos hasta la jubilación de ${persona3.nombre}: ${persona3.aniosHastaJubilacion()}")
 
+    println("======== CLASES CON CONTRUCTORES PERSONALIZADOS  ========= ")
+    val cuenta1 = CuentaBancaria("Juan Perez", "1233445677", 1240.50)
+    val cuenta2 = CuentaBancaria(titular = "Maria Lopez", "09765431445", saldoInicial = 4024.02)
 
+    cuenta1.mostrarInformacion()
+    cuenta2.mostrarInformacion()
 
+    println("======= OPERACIONES BANCARIAS ===========")
 
+    cuenta1.depositar(530.00)
+    cuenta1.retirar(120.0)
+    cuenta1.retirar(2300.0)
+
+    cuenta2.depositar(1230.00)
+    cuenta2.retirar(900.0)
+    println("======= ESTADO FINAL ===========")
+    cuenta1.mostrarInformacion()
+    cuenta2.mostrarInformacion()
+
+    println("====== DATA CLASS ========")
+    val producto1 = Producto("Laptop Thinkpad", 2440.0, 120)
+    val producto2 = Producto("Laptop HP", 1440.0, 40)
+    val producto3 = producto1.copy(stock =  23)
+
+    println("Producto 1: $producto1")
+    println("Producto 2: $producto2")
+    println("Producto 3: $producto3")
+    println("producto 1 == producto 2: ${producto1 == producto2}")
+    println("producto 1 == producto 3: ${producto1 == producto3}")
 
 }
 
@@ -79,6 +105,7 @@ class CuentaBancaria(val titular: String, val nroCuenta: String, saldoInicial: D
         println("Titular: $titular")
         println("Nro CC: $nroCuenta")
         println("Saldo: $saldoFormateado")
+        println()
     }
 
 }
